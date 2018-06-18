@@ -21,11 +21,11 @@ with open("./testhtml/rltrades.html") as file:
         tradebox = item.find_all("div", {"class": "new"}) #the single tb holding trades
         for newtrade in tradebox:
             trade = newtrade.find_all("div", recursive=False)
-            link = trade[0].get_text()
-            haves = trade[1]
-            wants = trade[2]
-            time = trade[3]
-            print(str(index) + ": " + str(link) + "\n")
+            link = trade[0]
+            haves = trade[1].get_text()
+            wants = trade[2].get_text()
+            time = trade[3].get_text()
+            print(str(index) + ": " + str(haves) + "\n")
             index = index + 1
 
     file.close()
