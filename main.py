@@ -9,23 +9,18 @@ from bs4 import BeautifulSoup as bs
 
 with open("./testhtml/rltrades.html") as file:
     soup = bs(file, "html5lib")
-
-    title = soup.title
-    titlestr = soup.title.string
-
-    print("Title is: " + str(titlestr))
-
     index = 1
-    c = soup.find_all("div", {"class": "contents"}) #contents portion
-    for item in c: 
-        tradebox = item.find_all("div", {"class": "new"}) #the single tb holding trades
-        for newtrade in tradebox:
+
+    for item in soup.find_all("div", {"class": "contents"}): 
+        for newtrade in item.find_all("div", {"class": "new"}):
             trade = newtrade.find_all("div", recursive=False)
-            link = trade[0]
+            link = ""
+            for l in newtrade.find_all("a", href=True):
+                link = l['href']
             haves = trade[1].get_text()
             wants = trade[2].get_text()
             time = trade[3].get_text()
-            print(str(index) + ": " + str(haves) + "\n")
+            print(str(index) + ": [" + link + "; " + haves + "; " + wants + "; " + time + "]\n")
             index = index + 1
 
     file.close()
