@@ -6,5 +6,6 @@
 > Problems installing beautifulsoup4 on python 2.7, and web2py has no python3 port, so trying to use django as web framework. https://docs.djangoproject.com/en/2.0/intro/tutorial01/
 
 ##### References:
-> https://www.crummy.com/software/BeautifulSoup/bs4/doc/
+> bs4 documentation: https://www.crummy.com/software/BeautifulSoup/bs4/doc/
+> django tutorial: https://docs.djangoproject.com/en/2.0/
 
