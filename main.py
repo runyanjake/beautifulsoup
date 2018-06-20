@@ -10,12 +10,14 @@ import urllib
 
 # sentdex's tutorial
 # this works for the example website https://pythonprogramming.net/parsememcparseface/ but not for rltrades
-URL = 'http://www.rl-trades.com/'
+# URL = 'http://www.rl-trades.com/'
+URL = 'https://coinmarketcap.com'
 sauce = urllib.request.urlopen(URL).read()
 soup2 = bs(sauce, 'html5lib')
 print(soup2)
 exit(0)
 
+#TODO: write code for coinmarketcap if it is giving me the right html
 
 with open("./testhtml/rltrades.html") as file:
     soup = bs(file, "html5lib")
